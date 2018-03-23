@@ -34,7 +34,7 @@ function TypeNumber(validations, typeProvider, validationProvider, messageProvid
       if (!valid) result[name] = {
         valid,
         value: value,
-        message: messageProvider.getMessage(name)
+        message: messageProvider.getMessage(name, { value })
       };
     });
 

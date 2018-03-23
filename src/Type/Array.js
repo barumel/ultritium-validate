@@ -34,7 +34,7 @@ function TypeArray(validations, typeProvider, validationProvider, messageProvide
         if (!_.isEmpty(valid)) result[identifier] = {
           valid,
           value: value,
-          message: messageProvider.getMessage(identifier)
+          message: messageProvider.getMessage(identifier, { value })
         };
       })
     });
