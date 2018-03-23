@@ -51,7 +51,7 @@ function ValidationProvider(parent) {
     checkIdentifierArgument(identifier);
     checkValidationArgument(func);
 
-    if (validations.has(identifier) || (!_.isUndefined(parent) && parent.has(identifier))) {
+    if (validations.has(identifier) || (!_.isUndefined(parent) && parent.hasValidation(identifier))) {
       throw new Error(`Validation with identifier ${identifier} already registered!`);
     }
 
@@ -85,7 +85,9 @@ function ValidationProvider(parent) {
   }
 
   function validate(value, identifier, args) {
+    if (!hasValidation(identifier) && !_.isUndefined(parent)) return parent.validate(value, identifier, args);
     const func = getValidation(identifier);
+    if (_.isUndefined(func)) throw new Error(`No validation method "${identifier}" registered!`);
 
     return func.apply(this, [ value, ...args ]);
   }

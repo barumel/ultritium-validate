@@ -13,7 +13,8 @@
   "author": "barumel",
   "license": "MIT",
   "dependencies": {
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "validator": "^9.4.1"
   },
   "devDependencies": {
     "assertthat": "^0.10.3",
