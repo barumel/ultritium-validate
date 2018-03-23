@@ -110,7 +110,7 @@ describe('Type object tests', () => {
 
       const type = TypeObject(flat, provider, {}, {});
       const result = type.validate({ name: 42 });
-console.log('RESISISIS', result);
+
       assert.that(result.name.type).is.equalTo(expected);
     });
   });
