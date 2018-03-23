@@ -29,6 +29,10 @@ function TypeString(validations, typeProvider, validationProvider, messageProvid
     else if (_.isNull(value)) result.type = { message: `Value must be of type string, null given.`, value };
     else if (!_.isString(value)) result.type = { message: `Value must be of type string, ${typeof value} given.`, value };
 
+    _.forEach(validations, (args, name) => {
+      result[identifier] = validationProvider.validate(value, name, args);
+    });
+
     return result;
   }
 

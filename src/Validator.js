@@ -2,40 +2,35 @@ const _ = require('lodash');
 const ValidationProvider = require('./ValidationProvider');
 const TypeProvider = require('./TypeProvider');
 const MessageProvider = require('./MessageProvider');
+const TypeObject = require('./Type/Object');
 
 function Validator(validationProvider) {
   if (_.isUndefined(validationProvider)) throw new Error('No validation provider given!');
 
-  let TypeProvider = TypeProvider();
-  let MessageProvider = MessageProvider();
+  const providers = new Map([
+    ['validation'], validationProvider,
+    ['type', TypeProvider()],
+    ['message', MessageProvider]
+  ]);
 
-
-  function getValidationProvider() {
-
+  function getProvider(identifier) {
+    return providers.get(identifier)
   }
 
-  function setValidationProvider() {
-
-  }
-
-  function getTypeProvider() {
-
-  }
-
-  function setTypeProvider() {
-
-  }
-
-  function getMessageProvider() {
-
-  }
-
-  function setMessageProvider() {
-
+  function setProvider(identifier, provider) {
+    providers.set(identifier, provider);
   }
 
   function validate(definition, data) {
     checkDefinitionArgument(definition);
+    const result = TypeObject(
+      definition.validations,
+      getProvider('type'),
+      getProvider('validatoin'),
+      getProvider('message')
+    ).validate(data);
+
+    return result;
   }
 
   function checkDefinitionArgument(definition) {
@@ -47,7 +42,9 @@ function Validator(validationProvider) {
   }
 
   return Object.freeze({
-
+    getProvider,
+    setProvider,
+    validate
   });
 }
 

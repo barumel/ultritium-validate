@@ -29,6 +29,10 @@ function TypeNumber(validations, typeProvider, validationProvider, messageProvid
     else if (_.isNull(value)) result.type = { message: `Value must be of type number, null given.`, value };
     else if (!_.isNumber(value)) result.type = { message: `Value must be of type number, ${typeof value} given.`, value };
 
+    _.forEach(validations, (args, name) => {
+      result[identifier] = validationProvider.validate(value, name, args);
+    });
+
     return result;
   }
 

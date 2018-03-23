@@ -28,6 +28,10 @@ function TypeArray(validations, typeProvider, validationProvider, messageProvide
     else if (_.isNull(value)) result.type = { message: `Value must be of type array, null given.`, value };
     else if (!_.isArray(value)) result.type = { message: `Value must be of type array, ${typeof value} given.`, value };
 
+    _.forEach(validations, (args, name) => {
+      value.forEach(item => result[identifier] = validationProvider.validate(item, name, args));
+    });
+
     return result;
   }
 

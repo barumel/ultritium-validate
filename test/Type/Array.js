@@ -1,12 +1,21 @@
 const assert = require('assertthat');
 
 const TypeArray = require('../../src/Type/Array');
+const ValidationProvider = require('../../src/ValidationProvider');
+const TypeProvider = require('../../src/TypeProvider');
+const MessageProvider = require('../../src/MessageProvider');
 
+const validationProvider = ValidationProvider();
+const typeProvider = TypeProvider();
+const messageProvider = MessageProvider();
+
+
+validationProvider.addValidation('foo', value => true);
 
 describe('Type array tests', () => {
   describe('Test validate method', () => {
     it('Must throw an error if not an array was passed to validate', () => {
-      const type = TypeArray({}, {}, {}, {});
+      const type = TypeArray({}, typeProvider, validationProvider, messageProvider);
       let result = {};
 
       result = type.validate(null);
@@ -29,13 +38,13 @@ describe('Type array tests', () => {
     });
 
     it('Type property must be undefined if an array was passed to validate and no additional validations are defined', () => {
-      const type = TypeArray({}, {}, {}, {});
+      const type = TypeArray({}, typeProvider, validationProvider, messageProvider);
       const result = type.validate([]);
       assert.that(result.type).is.undefined();
     });
 
     it('Must return an empty object if an array was passed to validate and no additional validations are defined', () => {
-      const type = TypeArray({}, {}, {}, {});
+      const type = TypeArray({}, typeProvider, validationProvider, messageProvider);
       const result = type.validate([]);
       assert.that(result).is.equalTo({});
     });
