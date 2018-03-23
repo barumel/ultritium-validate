@@ -24,13 +24,18 @@ function TypeNumber(validations, typeProvider, validationProvider, messageProvid
 
     // Type check... array, function and null are of type "object".
     // Because of this, these types get checked explicitly
-    if (_.isArray(value)) result.type = { message: `Value must be of type number, array given.`, value };
-    else if (_.isFunction(value)) result.type = { message: `Value must be of type number, function given.`, value };
-    else if (_.isNull(value)) result.type = { message: `Value must be of type number, null given.`, value };
-    else if (!_.isNumber(value)) result.type = { message: `Value must be of type number, ${typeof value} given.`, value };
+    if (_.isArray(value)) result.type = { valid: false, value, message: `Value must be of type number, array given.` };
+    else if (_.isFunction(value)) result.type = { valid: false, value, message: `Value must be of type number, function given.` };
+    else if (_.isNull(value)) result.type = { valid: false, value, message: `Value must be of type number, null given.` };
+    else if (!_.isNumber(value)) result.type = { valid: false, value, message: `Value must be of type number, ${typeof value} given.` };
 
     _.forEach(validations, (args, name) => {
-      result[identifier] = validationProvider.validate(value, name, args);
+      const valid = validationProvider.validate(value, name, args);
+      if (!valid) result[name] = {
+        valid,
+        value: value,
+        message: messageProvider.getMessage(name)
+      };
     });
 
     return result;

@@ -8,25 +8,25 @@ function Validator(validationProvider) {
   if (_.isUndefined(validationProvider)) throw new Error('No validation provider given!');
 
   const providers = new Map([
-    ['validation'], validationProvider,
+    ['validation', validationProvider],
     ['type', TypeProvider()],
-    ['message', MessageProvider]
+    ['message', MessageProvider()]
   ]);
 
   function getProvider(identifier) {
-    return providers.get(identifier)
+    return providers.get(identifier);
   }
 
   function setProvider(identifier, provider) {
     providers.set(identifier, provider);
   }
 
-  function validate(definition, data) {
+  function validate(definition, data = {}) {
     checkDefinitionArgument(definition);
     const result = TypeObject(
       definition.validations,
       getProvider('type'),
-      getProvider('validatoin'),
+      getProvider('validation'),
       getProvider('message')
     ).validate(data);
 
