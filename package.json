@@ -1,0 +1,24 @@
+{
+  "name": "ultritium-validate",
+  "version": "0.0.1",
+  "description": "Ultritium validator",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --recursive --bail"
+  },
+  "keywords": [
+    "ultritium",
+    "validate"
+  ],
+  "author": "barumel",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "assertthat": "^0.10.3",
+    "eslint": "^4.7.2",
+    "eslint-config-es": "^0.8.12",
+    "mocha": "^3.5.3"
+  }
+}

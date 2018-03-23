@@ -1,0 +1,46 @@
+const _ = require('lodash');
+const Type = require('./Type');
+
+/**
+ * Type Array
+ *
+ * @param {Object} validations Validation deinition
+ * @param {Object} types       Type factory
+ *
+ * @return {Object}
+ */
+function TypeObject(validations, typeProvider, validationProvider, messageProvider) {
+  const type = Type(validations, typeProvider, validationProvider, messageProvider);
+
+  /**
+   * Validate the given value and make sure it is an object
+   *
+   * @param  {Object} value Data to validate
+   *
+   * @return {}
+   */
+  function validate(value) {
+    const result = {};
+
+    // Dirty type check... array, function and null are of type "object".
+    // Because of this, these types get checked explicitly
+    if (_.isArray(value)) result.type = { message: `Value must be of type object, array given.`, value };
+    else if (_.isFunction(value)) result.type = { message: `Value must be of type object, function given.`, value };
+    else if (_.isNull(value)) result.type = { message: `Value must be of type object, null given.`, value };
+    else if (!_.isObject(value)) result.type = { message: `Value must be of type object, ${typeof value} given.`, value };
+
+    _.forEach(validations, (validation, key) => {
+      const type = typeProvider.create(validation.type, validationProvider, messageProvider, validation.validations);
+      if (!_.isUndefined(value[key])) result[key] = type.validate(value[key]);
+    });
+
+    return result;
+  }
+
+  return Object.freeze({
+    ...type,
+    validate
+  });
+}
+
+module.exports = TypeObject;
