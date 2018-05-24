@@ -30,9 +30,16 @@ function TypeObject(validations, typeProvider, validationProvider, messageProvid
     else if (!_.isObject(value)) result.type = { valid: false, value, message: `Value must be of type object, ${typeof value} given.` };
 
     _.forEach(validations, (validation, key) => {
+      // If value is not set but required, add required message and continue with next value.
+      // No need to run all validations in this case
+      if (_.isUndefined(value[key]) && validation.required) {
+        result[key] = { required: { valid: false, value: value[key], message: messageProvider.getMessage('required')} };
+        return;
+      }
+
+      // If value is defined we always have to validate...
       const type = typeProvider.create(validation.type, validationProvider, messageProvider, validation.validations);
-      //if (!_.isUndefined(value[key])) result[key] = type.validate(value[key]);
-      if (!_.isUndefined(value[key]) || validation.required) {
+      if (!_.isUndefined(value[key])) {
         const valid = type.validate(value[key]);
         if (!_.isEmpty(valid)) result[key] = valid;
       }

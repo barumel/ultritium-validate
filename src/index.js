@@ -7,7 +7,7 @@ const ValidationProvider = require('./ValidationProvider');
 const MessageProvider = require('./MessageProvider');
 const Type = require('./Type/Type');
 const TypeArray = require('./Type/Array');
-const TypeNumber = require('./Type/Array')
+const TypeNumber = require('./Type/Array');
 const TypeObject = require('./Type/Object');
 const TypeString = require('./Type/String');
 
