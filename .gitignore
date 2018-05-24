@@ -55,5 +55,11 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
 
+.env
+/coverage
+/demo/dist
+/es
+/lib
+/umd
+npm-debug.log*

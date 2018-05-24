@@ -3,7 +3,7 @@
 
 
 const _ = require('lodash');
-const { DefaultValidator: Validator } = require('../index.js');
+const { DefaultValidator: Validator } = require('../src/index.js');
 const validator = Validator();
 validator.getProvider('validation').addValidation('min', (value, min) => value > min)
 .addValidation('max', (value, min) => value < min);
