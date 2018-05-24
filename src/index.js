@@ -1,15 +1,15 @@
 const _ = require('lodash');
 const validations = require('validator');
 
-const Validator = require('./src/Validator');
-const TypeProvider = require('./src/TypeProvider');
-const ValidationProvider = require('./src/ValidationProvider');
-const MessageProvider = require('./src/MessageProvider');
-const Type = require('./src/Type/Type');
-const TypeArray = require('./src/Type/Array');
-const TypeNumber = require('./src/Type/Array')
-const TypeObject = require('./src/Type/Object');
-const TypeString = require('./src/Type/String');
+const Validator = require('./Validator');
+const TypeProvider = require('./TypeProvider');
+const ValidationProvider = require('./ValidationProvider');
+const MessageProvider = require('./MessageProvider');
+const Type = require('./Type/Type');
+const TypeArray = require('./Type/Array');
+const TypeNumber = require('./Type/Array')
+const TypeObject = require('./Type/Object');
+const TypeString = require('./Type/String');
 
 function ParentValidatonProvider() {
   const provider = ValidationProvider();
@@ -17,7 +17,7 @@ function ParentValidatonProvider() {
   function validate(value, identifier, args) {
     const func = validations[identifier];
     if (!_.isFunction(func)) throw new Error(`No validation method "${identifier}" registered!`);
-    
+
     return func.apply(validations, [ value.toString(), ...args ])
   }
 
