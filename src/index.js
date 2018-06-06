@@ -18,7 +18,7 @@ function ParentValidatonProvider() {
     const func = validations[identifier];
     if (!_.isFunction(func)) throw new Error(`No validation method "${identifier}" registered!`);
 
-    return func.apply(validations, [ value.toString(), ...args ])
+    return func.apply(validations, [ value + '', ...args ])
   }
 
   return Object.freeze({
