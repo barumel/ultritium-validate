@@ -5,8 +5,7 @@ Ultritium Validate
 [![Coveralls][coveralls-badge]][coveralls]
 
 
-
-[build-badge]: https://img.shields.io/travis/user/repo/master.png?style=flat-square
+[build-badge]: https://img.shields.io/travis/barumel/ultritium-validate/master.png?style=flat-square
 [build]: https://travis-ci.org/barumel/ultritium-validate
 
 [npm-badge]: https://img.shields.io/npm/v/npm-package.png?style=flat-square
