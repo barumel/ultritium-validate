@@ -1,19 +1,8 @@
 Ultritium Validate
 =========================
-[![Travis][build-badge]][build]
-[![npm package][npm-badge]][npm]
-[![Coveralls][coveralls-badge]][coveralls]
+[![Build Status](https://travis-ci.org/barumel/ultritium-validate.svg?branch=master)](https://travis-ci.org/barumel/ultritium-validate)
+[![NPM](https://img.shields.io/npm/v/@ultritium/validate.svg)](https://www.npmjs.org/package/@ultritium/validate)
 
-
-
-[build-badge]: https://img.shields.io/travis/user/repo/master.png?style=flat-square
-[build]: https://travis-ci.org/barumel/ultritium-validate
-
-[npm-badge]: https://img.shields.io/npm/v/npm-package.png?style=flat-square
-[npm]: https://www.npmjs.org/package/@ultritium/validate
-
-[coveralls-badge]: https://img.shields.io/coveralls/user/repo/master.png?style=flat-square
-[coveralls]: https://coveralls.io/github/barumel/ultritium-validate
 
 Validation library for complex objects.
 
