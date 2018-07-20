@@ -34,6 +34,7 @@ yarn add @ultritium/validate
 ## Basic usage
 ### DefaultValidator
 The easiest way to get started is to use the DefaultValidator provided by this package.
+
 It uses [`validator.js`](https://github.com/chriso/validator.js) behind the scenes, so you can use all validations provided by this lib.
 
 ```
@@ -44,6 +45,7 @@ const validator = DefaultValidator();
 
 ### Validation definition
 The validation definition is an object containing a set of validations to be applied to the given data.
+
 A simple validation definition can look like this:
 ```
 const validationDefinition = {
@@ -111,6 +113,7 @@ validator.validate(validationDefinition, myData);
 
 #### Required fields
 If a property is required ```required: true``` the validator will return an error if the property is not set.
+
 If the property is not required but a value was passed and validations are defined, the validations will be applied as well.
 
 ### Custom validations
@@ -121,7 +124,9 @@ validator..getProvider('validation')
 ```
 
 Note that you will have to use ```replaceValidation``` function to overwrite a previously added validation.
+
 If you try to add a validation that was already added, the validation provider will throw an error.
+
 This is to make sure, that you don't overwrite existing validations by accident.
 
 ```
@@ -131,13 +136,14 @@ validator..getProvider('validation')
 
 ### Error Messages
 The default message for a failed validation is "The provided value is not valid!".
+
 You can overwrite the default message with your own default message.
 ```
 validator.getProvider('message')
   .setDefaultMessage('Something is wrong...');
 ```
 
-Or if you need the current params.
+Or if you need the current params...
 ```
 validator.getProvider('message')
   .setDefaultMessage('isLength', (params) => `${params.value} is not valid`);
@@ -147,6 +153,7 @@ validator.getProvider('message')
 In most cases you want to set custom messages for each validation.
 
 To add you custom error messages, get the message provider from validator and add a message.
+
 The first param is the validation, the second the message to be returned.
 ```
 validator.getProvider('message')
@@ -154,6 +161,7 @@ validator.getProvider('message')
 ```
 
 In most applications, you want to translate the returned message.
+
 The library does not translate any string, it's on you to do so.
 
 The easiest way is to set the translation identifier as message and translate it in your view.
