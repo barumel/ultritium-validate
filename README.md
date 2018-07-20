@@ -66,7 +66,7 @@ const validationDefinition = {
       type: 'number',
       required: true,
       validations: {
-        isLength: [{ min: 1 }]
+        isLength: [{ min: 4 }]
       }
     }
   }
