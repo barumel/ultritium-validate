@@ -144,7 +144,7 @@ validator.getProvider('message')
 ```
 
 #### Per validation
-In most cases you want to overwrite the default message with custom messages.
+In most cases you want to set custom messages for each validation.
 
 To add you custom error messages, get the message provider from validator and add a message.
 The first param is the validation, the second the message to be returned.
