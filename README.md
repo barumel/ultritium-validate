@@ -1,7 +1,22 @@
 Ultritium Validate
 =========================
+[![Travis][build-badge]][build]
+[![npm package][npm-badge]][npm]
+[![Coveralls][coveralls-badge]][coveralls]
+
+
+
+[build-badge]: https://img.shields.io/travis/user/repo/master.png?style=flat-square
+[build]: https://travis-ci.org/barumel/ultritium-validate
+
+[npm-badge]: https://img.shields.io/npm/v/npm-package.png?style=flat-square
+[npm]: https://www.npmjs.org/package/@ultritium/validate
+
+[coveralls-badge]: https://img.shields.io/coveralls/user/repo/master.png?style=flat-square
+[coveralls]: https://coveralls.io/github/barumel/ultritium-validate
 
 Validation library for complex objects.
+
 WARNING: This is still an early version. Bugs are included for free...
 
 
@@ -12,7 +27,6 @@ npm install --save @ultritium/validate
 ```
 
 ### YARN
-### NPM
 ```
 yarn add @ultritium/validate
 ```
@@ -96,7 +110,7 @@ validator.validate(validationDefinition, myData);
 ```
 
 #### Required fields
-If a property is required ```required: true```the validator will return an error if the property is not set.
+If a property is required ```required: true``` the validator will return an error if the property is not set.
 If the property is not required but a value was passed and validations are defined, the validations will be applied as well.
 
 ### Custom validations
@@ -129,6 +143,7 @@ validator.getProvider('message')
   .setDefaultMessage('isLength', (params) => `${params.value} is not valid`);
 ```
 
+#### Per validation
 In most cases you want to overwrite the default message with custom messages.
 
 To add you custom error messages, get the message provider from validator and add a message.
@@ -152,21 +167,3 @@ You can also pass in a function as message argument that will be called with the
 validator.getProvider('message')
   .addMessage('isLength', (params) => `${params.value} is not valid`);
 ```
-
-
-
-
-[![Travis][build-badge]][build]
-[![npm package][npm-badge]][npm]
-[![Coveralls][coveralls-badge]][coveralls]
-
-
-
-[build-badge]: https://img.shields.io/travis/user/repo/master.png?style=flat-square
-[build]: https://travis-ci.org/user/repo
-
-[npm-badge]: https://img.shields.io/npm/v/npm-package.png?style=flat-square
-[npm]: https://www.npmjs.org/package/npm-package
-
-[coveralls-badge]: https://img.shields.io/coveralls/user/repo/master.png?style=flat-square
-[coveralls]: https://coveralls.io/github/user/repo
