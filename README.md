@@ -8,7 +8,7 @@ Ultritium Validate
 [build-badge]: https://img.shields.io/travis/barumel/ultritium-validate/master.png?style=flat-square
 [build]: https://travis-ci.org/barumel/ultritium-validate
 
-[npm-badge]: https://img.shields.io/npm/v/npm-package.png?style=flat-square
+[npm-badge]: https://img.shields.io/npm/v/@ultritium/validate.png?style=flat-square
 [npm]: https://www.npmjs.org/package/@ultritium/validate
 
 [coveralls-badge]: https://img.shields.io/coveralls/user/repo/master.png?style=flat-square
