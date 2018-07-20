@@ -1,5 +1,3 @@
-sudo: false
-
 language: node_js
 node_js:
   - "0.10"
@@ -13,13 +11,10 @@ node_js:
   - "7.10"
   - "8.11"
   - "10.7"
-
 before_install:
   - npm install codecov.io coveralls
-
 after_success:
   - cat ./coverage/lcov.info | ./node_modules/codecov.io/bin/codecov.io.js
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
-
-  script:
+script:
   - "npm test"
