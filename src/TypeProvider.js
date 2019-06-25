@@ -3,6 +3,7 @@ const TypeString = require('./Type/String');
 const TypeNumber = require('./Type/Number');
 const TypeArray = require('./Type/Array');
 const TypeObject = require('./Type/Object');
+const TypeBoolean = require('./Type/Boolean');
 
 /**
  * Type factory
@@ -15,7 +16,8 @@ function TypeProvider() {
     ['string', TypeString],
     ['number', TypeNumber],
     ['array', TypeArray],
-    ['object', TypeObject]
+    ['object', TypeObject],
+    ['boolean', TypeBoolean]
   ]);
 
   /**
