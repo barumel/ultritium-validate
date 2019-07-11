@@ -103,10 +103,6 @@ describe('MessageProvider tests', () => {
   });
 
   describe('Test replace method', () => {
-    it('', () => {
-      const provider = MessageProvider();
-    });
-
     it('Must add the message even there is no registered message for this identifier', () => {
       const provider = MessageProvider();
       provider.replaceMessage('foo', 'bar');

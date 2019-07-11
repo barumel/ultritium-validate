@@ -1,15 +1,17 @@
 const _ = require('lodash');
 const validations = require('validator');
 
-const Validator = require('./Validator');
-const TypeProvider = require('./TypeProvider');
-const ValidationProvider = require('./ValidationProvider');
 const MessageProvider = require('./MessageProvider');
 const Type = require('./Type/Type');
 const TypeArray = require('./Type/Array');
 const TypeNumber = require('./Type/Array');
 const TypeObject = require('./Type/Object');
+const TypeProvider = require('./TypeProvider');
 const TypeString = require('./Type/String');
+const ValidationProvider = require('./ValidationProvider');
+const Validator = require('./Validator');
+
+const flattenValidationResult = require('./Utils/flattenValidationResult');
 
 function ParentValidatonProvider() {
   const provider = ValidationProvider();
@@ -34,14 +36,15 @@ function DefaultValidator() {
 }
 
 module.exports = {
-  Validator,
   DefaultValidator,
-  TypeProvider,
-  ValidationProvider,
+  flattenValidationResult,
   MessageProvider,
   Type,
   TypeArray,
   TypeNumber,
   TypeObject,
-  TypeString
-}
+  TypeProvider,
+  TypeString,
+  ValidationProvider,
+  Validator
+};

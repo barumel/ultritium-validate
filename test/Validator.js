@@ -140,7 +140,8 @@ describe('Validator tests', () => {
             nope: {
               valid: false,
               value: 7,
-              message: 'The provided value is not valid!'
+              message: 'The provided value is not valid!',
+              args: []
             }
           }
         }
@@ -170,7 +171,8 @@ describe('Validator tests', () => {
             nope: {
               valid: false,
               value: 'foo',
-              message: 'The provided value is not valid!'
+              message: 'The provided value is not valid!',
+              args: []
             }
           },
           address: {
@@ -178,7 +180,8 @@ describe('Validator tests', () => {
               nope: {
                 valid: false,
                 value: 12,
-                message: 'The provided value is not valid!'
+                message: 'The provided value is not valid!',
+                args: []
               }
             }
           }
