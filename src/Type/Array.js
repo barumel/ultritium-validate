@@ -31,10 +31,11 @@ function TypeArray(validations, typeProvider, validationProvider, messageProvide
     _.forEach(validations, (args, name) => {
       value.forEach(item => {
         const valid = validationProvider.validate(item, name, args);
-        if (!_.isEmpty(valid)) result[identifier] = {
+        if (!_.isEmpty(valid)) result[name] = {
           valid,
-          value: value,
-          message: messageProvider.getMessage(identifier, { value })
+          value,
+          args,
+          message: messageProvider.getMessage(name, { value, args })
         };
       })
     });

@@ -33,8 +33,9 @@ function TypeString(validations, typeProvider, validationProvider, messageProvid
       const valid = validationProvider.validate(value, name, args);
       if (!valid) result[name] = {
         valid,
-        value: value,
-        message: messageProvider.getMessage(name, { value })
+        value,
+        args,
+        message: messageProvider.getMessage(name, { value, args })
       };
     });
 
