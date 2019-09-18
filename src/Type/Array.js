@@ -29,15 +29,28 @@ function TypeArray(validations, typeProvider, validationProvider, messageProvide
     else if (!_.isArray(value)) result.type = { valid: false, value, message: `Value must be of type array, ${typeof value} given.` };
 
     _.forEach(validations, (args, name) => {
-      value.forEach(item => {
-        const valid = validationProvider.validate(item, name, args);
-        if (!_.isEmpty(valid)) result[name] = {
-          valid,
-          value,
-          args,
-          message: messageProvider.getMessage(name, { value, args })
-        };
-      })
+      if (_.isPlainObject(args) && _.has(args, 'validations')) {
+        const type = typeProvider.create('object', validationProvider, messageProvider, validations);
+        _.forEach(value, (item, index) => {
+          const valid = type.validate(item);
+          if (!_.isEmpty(valid)) {
+            result[index] = valid;
+          }
+        });
+      } else {
+        value.forEach((item, index) => {
+          const valid = validationProvider.validate(item, name, args);
+          if (!valid) {
+            result[index] = result[index] || {};
+            result[index][name] = {
+              valid,
+              item,
+              args,
+              message: messageProvider.getMessage(name, { item, args })
+            };
+          }
+        });
+      }
     });
 
     return result;
