@@ -113,8 +113,7 @@ If the property is not required but a value was passed and validations are defin
 ### Custom validations
 You can add your own validations to the validator or overwrite the default validation from validator.js.
 ```
-validator.getProvider('validation')
-  .addValidation('min', (value, min) => value > min);
+validator.getProvider('validation').addValidation('min', (value, min) => value > min);
 ```
 
 Note that you will have to use ```replaceValidation``` function to overwrite a previously added validation.
@@ -124,8 +123,7 @@ If you try to add a validation that was already added, the validation provider w
 This is to make sure, that you don't overwrite existing validations by accident.
 
 ```
-validator.getProvider('validation')
-  .replaceValidation('min', (value, min) => value > min);
+validator.getProvider('validation').replaceValidation('min', (value, min) => value > min);
 ```
 
 ### Error Messages
