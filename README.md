@@ -135,7 +135,7 @@ validator.getProvider('message')
 Or if you need the current params...
 ```
 validator.getProvider('message')
-  .setDefaultMessage('isLength', (params) => `${params.value} is not valid`);
+  .setDefaultMessage((params) => `${params.value} is not valid`);
 ```
 
 #### Per validation
