@@ -6,9 +6,6 @@ Ultritium Validate
 
 Validation library for complex objects.
 
-WARNING: This is still an early version. Bugs are included for free...
-
-
 ## Installation
 ### NPM
 ```
@@ -33,6 +30,14 @@ const validator = DefaultValidator();
 ```
 
 ### Validation definition
+
+#### Parameters
+You can pass in additional arguments to the validation function as array. The function will then be called with the value as first argument and
+
+the given params as additional arguments (func.apply).
+
+
+#### Definition
 The validation definition is an object containing a set of validations to be applied to the given data.
 
 A simple validation definition can look like this:
@@ -108,8 +113,7 @@ If the property is not required but a value was passed and validations are defin
 ### Custom validations
 You can add your own validations to the validator or overwrite the default validation from validator.js.
 ```
-validator.getProvider('validation')
-  .addValidation('min', (value, min) => value > min);
+validator.getProvider('validation').addValidation('min', (value, min) => value > min);
 ```
 
 Note that you will have to use ```replaceValidation``` function to overwrite a previously added validation.
@@ -119,8 +123,7 @@ If you try to add a validation that was already added, the validation provider w
 This is to make sure, that you don't overwrite existing validations by accident.
 
 ```
-validator.getProvider('validation')
-  .replaceValidation('min', (value, min) => value > min);
+validator.getProvider('validation').replaceValidation('min', (value, min) => value > min);
 ```
 
 ### Error Messages
@@ -128,14 +131,12 @@ The default message for a failed validation is "The provided value is not valid!
 
 You can overwrite the default message with your own default message.
 ```
-validator.getProvider('message')
-  .setDefaultMessage('Something is wrong...');
+validator.getProvider('message').setDefaultMessage('Something is wrong...');
 ```
 
 Or if you need the current params...
 ```
-validator.getProvider('message')
-  .setDefaultMessage('isLength', (params) => `${params.value} is not valid`);
+validator.getProvider('message').setDefaultMessage((params) => `${params.value} is not valid`);
 ```
 
 #### Per validation
@@ -145,8 +146,7 @@ To add you custom error messages, get the message provider from validator and ad
 
 The first param is the validation, the second the message to be returned.
 ```
-validator.getProvider('message')
-  .addMessage('isLength', 'Min length is 2');
+validator.getProvider('message').addMessage('isLength', 'Min length is 2');
 ```
 
 In most applications, you want to translate the returned message.
@@ -155,12 +155,10 @@ The library does not translate any string, it's on you to do so.
 
 The easiest way is to set the translation identifier as message and translate it in your view.
 ```
-validator.getProvider('message')
-  .addMessage('isLength', 'Errors.MinLength');
+validator.getProvider('message').addMessage('isLength', 'Errors.MinLength');
 ```
 
 You can also pass in a function as message argument that will be called with the current params.
 ```
-validator.getProvider('message')
-  .addMessage('isLength', (params) => `${params.value} is not valid`);
+validator.getProvider('message').addMessage('isLength', (params) => `${params.value} is not valid`);
 ```
