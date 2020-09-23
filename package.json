@@ -22,7 +22,7 @@
     "validate"
   ],
   "dependencies": {
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.20",
     "validator": "^9.4.1"
   },
   "devDependencies": {
@@ -31,7 +31,7 @@
     "eslint-config-es": "^0.8.12",
     "mocha": "^3.5.3",
     "nodemon": "^1.19.0",
-    "nwb": "^0.23.0"
+    "nwb": "^0.25.2"
   },
   "author": "barumel",
   "homepage": "",
