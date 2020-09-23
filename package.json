@@ -1,6 +1,6 @@
 {
   "name": "@ultritium/validate",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "description": "Ultritium validator",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -10,7 +10,8 @@
     "umd"
   ],
   "scripts": {
-    "build": "nwb build-web-module",
+    "build": "nwb build-web-module --no-demo",
+    "start": "nodemon -w src -x 'nwb build-web-module --no-demo --copy-files'",
     "clean": "nwb clean-module",
     "test": "mocha --recursive --bail",
     "test:coverage": "nwb test --coverage",
@@ -21,15 +22,16 @@
     "validate"
   ],
   "dependencies": {
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.20",
     "validator": "^9.4.1"
   },
   "devDependencies": {
-    "nwb": "0.21.x",
     "assertthat": "^0.10.3",
     "eslint": "^4.7.2",
     "eslint-config-es": "^0.8.12",
-    "mocha": "^3.5.3"
+    "mocha": "^7.1.1",
+    "nodemon": "^2.0.4",
+    "nwb": "^0.25.2"
   },
   "author": "barumel",
   "homepage": "",
