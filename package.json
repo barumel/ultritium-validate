@@ -1,6 +1,6 @@
 {
   "name": "@ultritium/validate",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Ultritium validator",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -23,7 +23,7 @@
   ],
   "dependencies": {
     "lodash": "^4.17.20",
-    "validator": "^9.4.1"
+    "validator": "^13.5.2"
   },
   "devDependencies": {
     "assertthat": "^0.10.3",
