@@ -110,6 +110,172 @@ If a property is required ```required: true``` the validator will return an erro
 
 If the property is not required but a value was passed and validations are defined, the validations will be applied as well.
 
+### Available types
+Each validation object has a type. There are currently 6 pre-defined types you can use.
+
+You can also add custom types via `getTypeProvider().addFactory(identifier, func)`
+
+
+**The validation definition differs, depending on the type of the validation.**
+
+In case of primitive types like string, number and boolean (and array of primitives),
+the validations object contains the name of the validation function as key and the args to pass to the function as value.
+
+
+In case of objects / array of objects, the validation definition contains a validation definition for each property of the object or object in array.
+Each definition must then have a type and a validations definition for each property of the object to validate.
+
+
+#### string
+Checks if the given value is a string and runs each defined validation with the given value
+
+```
+const definition = {
+  validations: {
+    city: {
+      type: 'string',
+      required: true,
+      // Object containing validations that should be applied to the given value.
+      // Object key is the name of the validation, value the args passed to the validation function
+      validations: {
+        maxLength: [10]
+      }
+    }
+  }
+}
+```
+
+#### number
+Checks if the given value is a number and runs each defined validation with the given value
+
+```
+const definition = {
+  validations: {
+    city: {
+      type: 'number',
+      required: true,
+      // Object containing validations that should be applied to the given value.
+      // Object key is the name of the validation, value the args passed to the validation function
+      validations: {
+        maxLength: [10]
+      }
+    }
+  }
+}
+```
+
+#### boolean
+Checks if the given value is a boolean and runs each defined validation with the given value
+
+```
+const definition = {
+  validations: {
+    city: {
+      type: 'boolean',
+      required: true,
+      // Object containing validations that should be applied to the given value.
+      // Object key is the name of the validation, value the args passed to the validation function
+      validations: {
+        maxLength: [10]
+      }
+    }
+  }
+}
+```
+
+#### object
+Type for structured objects. This is actually the entry point for recursion.
+
+Checks if the given value is an object and runs each validation for each defined prop
+
+```
+const definition = {
+  validations: {
+    address: {
+      type: 'object',
+      required: true,
+      // Object containing the structure of the object to validate.
+      // Each definition is a validation of another type (can also be object)    
+      // The definition differs to the definition of primitive types like string, bool etc.
+      // as an object containing other validations is expected
+      validations: {
+        street: {
+          type: 'number',
+          required: true
+        },
+        number: {
+          type: 'number',
+          required: true
+        },
+      }
+    }
+  }
+}
+```
+
+#### plainObject
+Checks if the given value is an object and runs each validation with the given value.
+
+This type can be used for unstructured objects. In this case, the whole object is passed to each defined validation.
+
+```
+const definition = {
+  validations: {
+    plain: {
+      type: 'plainObject',
+      required: true,
+      validations: {
+        objectValuesMustBeStrings: ]|
+      }
+    }
+  }
+}
+```
+
+#### array
+Checks if the given value is an array and runs each validation for each value.
+
+This type can validate arrays containing primitive types or object definitions (see examples)
+
+```
+const definition = {
+  validations: {
+    numbers: {
+      type: 'array',
+      // In this case, the definition follows the same structure as primitives.
+      // Each key in "validations" is the name of the validation to apply, value are the args to pass to
+      // the validation function
+      validations: {
+        isNumber: [],
+        max: [20]
+      }
+    },
+    objects: {
+      type: 'array',
+      // In this case, the definition follows the same structure as object.
+      // Each key in "validations" is a key in the object to validate.
+      // Value is a validation definition for objects
+      validations: {
+        name: {
+          type: 'string',
+          required: true,
+          validations: {
+            minLength: [5]
+          }
+        },
+        age: {
+          type: 'number',
+          required: true,
+          validations: {
+            min: [0]
+          }
+        }
+      }
+    }
+  }
+}
+```
+
 ### Custom validations
 You can add your own validations to the validator or overwrite the default validation from validator.js.
 ```
