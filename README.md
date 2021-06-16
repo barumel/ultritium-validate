@@ -116,7 +116,7 @@ Each validation object has a type. There are currently 6 pre-defined types you c
 You can also add custom types via `getTypeProvider().addFactory(identifier, func)`
 
 
-The validation definition differs, depending on the type of the validation.
+**The validation definition differs, depending on the type of the validation.**
 
 In case of primitive types like string, number and boolean (and array of primitives),
 the validations object contains the name of the validation function as key and the args to pass to the function as value.
