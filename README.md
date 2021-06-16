@@ -122,7 +122,7 @@ In case of primitive types like string, number and boolean (and array of primiti
 the validations object contains the name of the validation function as key and the args to pass to the function as value.
 
 
-In case of objects / array of objects, the validation definition contains a validation definition for each property in the array.
+In case of objects / array of objects, the validation definition contains a validation definition for each property of the object or object in array.
 Each definition must then have a type and a validations definition for each property of the object to validate.
 
 
