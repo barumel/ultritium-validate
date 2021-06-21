@@ -225,7 +225,7 @@ const definition = {
       type: 'plainObject',
       required: true,
       validations: {
-        objectValuesMustBeStrings: ]|
+        objectValuesMustBeStrings: []
       }
     }
   }
@@ -270,6 +270,25 @@ const definition = {
             min: [0]
           }
         }
+      }
+    }
+  }
+}
+```
+
+#### plainArray
+Checks if the given value is an array and runs each validation with the given value.
+
+This type can be used for unstructured arrays. In this case, the whole array is passed to each defined validation.
+
+```
+const definition = {
+  validations: {
+    plain: {
+      type: 'plainArray',
+      required: true,
+      validations: {
+        minArrayLength: [2]
       }
     }
   }
