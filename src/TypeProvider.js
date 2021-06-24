@@ -6,6 +6,7 @@ const TypeObject = require('./Type/Object');
 const TypeBoolean = require('./Type/Boolean');
 const TypePlainObject = require('./Type/PlainObject');
 const TypePlainArray = require('./Type/PlainArray');
+const TypeFunction = require('./Type/Function');
 
 /**
  * Type factory
@@ -21,7 +22,8 @@ function TypeProvider() {
     ['object', TypeObject],
     ['boolean', TypeBoolean],
     ['plainObject', TypePlainObject],
-    ['plainArray', TypePlainArray]
+    ['plainArray', TypePlainArray],
+    ['function', TypeFunction]
   ]);
 
   /**

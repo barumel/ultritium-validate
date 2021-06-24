@@ -183,6 +183,20 @@ const definition = {
 }
 ```
 
+#### function
+Checks if the given value is a function. As we cannot validate functions, this is a simple type check.
+
+```
+const definition = {
+  validations: {
+    city: {
+      type: 'function',
+      required: true
+    }
+  }
+}
+```
+
 #### object
 Type for structured objects. This is actually the entry point for recursion.
 
