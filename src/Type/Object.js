@@ -32,7 +32,11 @@ function TypeObject(validations, typeProvider, validationProvider, messageProvid
     _.forEach(validations, (validation, key) => {
       // If value is not set but required, add required message and continue with next value.
       // No need to run all validations in this case
-      if (_.isUndefined(value[key]) && validation.required) {
+      const required = _.isFunction(validation.required)
+        ? validation.required({ key, value: value[key], parent: value })
+        : validation.required;
+
+      if (_.isUndefined(value[key]) && required) {
         result[key] = { required: { valid: false, value: value[key], message: messageProvider.getMessage('required')} };
         return;
       }
