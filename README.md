@@ -110,8 +110,13 @@ If a property is required ```required: true``` the validator will return an erro
 
 If the property is not required but a value was passed and validations are defined, the validations will be applied as well.
 
+Required can be a function as well. In this case, the funciton gets called with the current key and value as well as the parent object in data structur:
+```
+required({ key, value, parent })
+```
+
 ### Available types
-Each validation object has a type. There are currently 6 pre-defined types you can use.
+Each validation object has a type. There are currently 8 pre-defined types you can use.
 
 You can also add custom types via `getTypeProvider().addFactory(identifier, func)`
 
@@ -125,6 +130,32 @@ the validations object contains the name of the validation function as key and t
 In case of objects / array of objects, the validation definition contains a validation definition for each property of the object or object in array.
 Each definition must then have a type and a validations definition for each property of the object to validate.
 
+### Dynamic type
+The type property can be one of the predefined types from below as well as a function.
+
+In case of a function, the function gets called with the current key, value as well as the parent object from data structure and must return one of the available types.
+```
+required({ key, value, parent })
+```
+
+#### alphanumeric
+Checks if the given value is a string or a number and runs each defined validation with the given value
+
+```
+const definition = {
+  validations: {
+    city: {
+      type: 'alphanumeric',
+      required: true,
+      // Object containing validations that should be applied to the given value.
+      // Object key is the name of the validation, value the args passed to the validation function
+      validations: {
+        maxLength: [10]
+      }
+    }
+  }
+}
+```
 
 #### string
 Checks if the given value is a string and runs each defined validation with the given value
