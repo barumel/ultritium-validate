@@ -42,7 +42,11 @@ function TypeObject(validations, typeProvider, validationProvider, messageProvid
       }
 
       // If value is defined we always have to validate...
-      const type = typeProvider.create(validation.type, validationProvider, messageProvider, validation.validations);
+      const t = _.isFunction(validation.type)
+        ? validation.type({ key, value: value[key], parent: value })
+        : validation.type;
+
+      const type = typeProvider.create(t, validationProvider, messageProvider, validation.validations);
       if (!_.isUndefined(value[key])) {
         const valid = type.validate(value[key]);
         if (!_.isEmpty(valid)) result[key] = valid;

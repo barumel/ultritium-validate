@@ -1,4 +1,5 @@
 const _ = require('lodash');
+const TypeAlphaNumeric = require('./Type/AlphaNumeric');
 const TypeString = require('./Type/String');
 const TypeNumber = require('./Type/Number');
 const TypeArray = require('./Type/Array');
@@ -16,6 +17,7 @@ const TypeFunction = require('./Type/Function');
 function TypeProvider() {
   // Default types
   const types = new Map([
+    ['alphanumeric', TypeAlphaNumeric],
     ['string', TypeString],
     ['number', TypeNumber],
     ['array', TypeArray],
