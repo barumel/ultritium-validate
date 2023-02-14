@@ -24,9 +24,9 @@ function TypeArray(validations, typeProvider, validationProvider, messageProvide
 
     // Type check... array, function and null are of type "object".
     // Because of this, these types get checked explicitly
-    if (_.isFunction(value)) result.type = { valid: false, value, message: `Value must be of type array, function given.` };
-    else if (_.isNull(value)) result.type = { valid: false, value, message: `Value must be of type array, null given.` };
-    else if (!_.isArray(value)) result.type = { valid: false, value, message: `Value must be of type array, ${typeof value} given.` };
+    if (_.isFunction(value)) result.type = { valid: false, value, message: `Value must be of type array, function given` };
+    else if (_.isNull(value)) result.type = { valid: false, value, message: `Value must be of type array, null given` };
+    else if (!_.isArray(value)) result.type = { valid: false, value, message: `Value must be of type array, ${typeof value} given` };
 
     _.forEach(validations, (args, name) => {
       if (_.isPlainObject(args) && _.has(args, 'validations')) {

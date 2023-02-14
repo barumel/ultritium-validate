@@ -24,10 +24,10 @@ function TypeFunction(validations, typeProvider, validationProvider, messageProv
 
     // Type check... array, function and null are of type "object".
     // Because of this, these types get checked explicitly
-    if (_.isArray(value)) result.type = { valid: false, value, message: `Value must be of type string, array given.` };
-    else if (_.isString(value)) result.type = { valid: false, value, message: `Value must be of type function, string given.` };
-    else if (_.isNull(value)) result.type = { valid: false, value, message: `Value must be of type string, null given.` };
-    else if (!_.isFunction(value)) result.type = { valid: false, value, message: `Value must be of type string, ${typeof value} given.` };
+    if (_.isArray(value)) result.type = { valid: false, value, message: `Value must be of type string, array given` };
+    else if (_.isString(value)) result.type = { valid: false, value, message: `Value must be of type function, string given` };
+    else if (_.isNull(value)) result.type = { valid: false, value, message: `Value must be of type string, null given` };
+    else if (!_.isFunction(value)) result.type = { valid: false, value, message: `Value must be of type string, ${typeof value} given` };
 
     // Nothing to do here as we cannot validate functions
 

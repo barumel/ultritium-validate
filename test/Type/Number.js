@@ -9,22 +9,22 @@ describe('Type number tests', () => {
       let result = {};
 
       result = type.validate(null);
-      assert.that(result.type).is.equalTo({ valid: false, message: 'Value must be of type number, null given.', value: null});
+      assert.that(result.type).is.equalTo({ valid: false, message: 'Value must be of type number, null given', value: null});
 
       result = type.validate(undefined);
-      assert.that(result.type).is.equalTo({ valid: false, message: 'Value must be of type number, undefined given.', value: undefined});
+      assert.that(result.type).is.equalTo({ valid: false, message: 'Value must be of type number, undefined given', value: undefined});
 
       result = type.validate('test');
-      assert.that(result.type).is.equalTo({ valid: false, message: 'Value must be of type number, string given.', value: 'test'});
+      assert.that(result.type).is.equalTo({ valid: false, message: 'Value must be of type number, string given', value: 'test'});
 
       result = type.validate({});
-      assert.that(result.type).is.equalTo({ valid: false, message: 'Value must be of type number, object given.', value: {}});
+      assert.that(result.type).is.equalTo({ valid: false, message: 'Value must be of type number, object given', value: {}});
 
       result = type.validate([]);
-      assert.that(result.type).is.equalTo({ valid: false, message: 'Value must be of type number, array given.', value: []});
+      assert.that(result.type).is.equalTo({ valid: false, message: 'Value must be of type number, array given', value: []});
 
       result = type.validate(() => {});
-      assert.that(result.type).is.equalTo({ valid: false, message: 'Value must be of type number, function given.', value: () => {}});
+      assert.that(result.type).is.equalTo({ valid: false, message: 'Value must be of type number, function given', value: () => {}});
     });
 
     it('Type property must be undefined if a number was passed to validate and no additional validations are defined', () => {

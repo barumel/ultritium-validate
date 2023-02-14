@@ -24,10 +24,10 @@ function TypeBoolean(validations, typeProvider, validationProvider, messageProvi
 
     // Type check... array, function and null are of type "object".
     // Because of this, these types get checked explicitly
-    if (_.isArray(value)) result.type = { valid: false, value, message: `Value must be of type boolean, array given.` };
-    else if (_.isFunction(value)) result.type = { valid: false, value, message: `Value must be of type boolean, function given.` };
-    else if (_.isNull(value)) result.type = { valid: false, value, message: `Value must be of type boolean, null given.` };
-    else if (!_.isBoolean(value)) result.type = { valid: false, value, message: `Value must be of type boolean, ${typeof value} given.` };
+    if (_.isArray(value)) result.type = { valid: false, value, message: `Value must be of type boolean, array given` };
+    else if (_.isFunction(value)) result.type = { valid: false, value, message: `Value must be of type boolean, function given` };
+    else if (_.isNull(value)) result.type = { valid: false, value, message: `Value must be of type boolean, null given` };
+    else if (!_.isBoolean(value)) result.type = { valid: false, value, message: `Value must be of type boolean, ${typeof value} given` };
 
     _.forEach(validations, (args, name) => {
       const valid = validationProvider.validate(value, name, args);
