@@ -24,10 +24,10 @@ function TypeString(validations, typeProvider, validationProvider, messageProvid
 
     // Type check... array, function and null are of type "object".
     // Because of this, these types get checked explicitly
-    if (_.isArray(value)) result.type = { valid: false, value, message: `Value must be of type string, array given.` };
-    else if (_.isFunction(value)) result.type = { valid: false, value, message: `Value must be of type string, function given.` };
-    else if (_.isNull(value)) result.type = { valid: false, value, message: `Value must be of type string, null given.` };
-    else if (!_.isString(value)) result.type = { valid: false, value, message: `Value must be of type string, ${typeof value} given.` };
+    if (_.isArray(value)) result.type = { valid: false, value, message: `Value must be of type string, array given` };
+    else if (_.isFunction(value)) result.type = { valid: false, value, message: `Value must be of type string, function given` };
+    else if (_.isNull(value)) result.type = { valid: false, value, message: `Value must be of type string, null given` };
+    else if (!_.isString(value)) result.type = { valid: false, value, message: `Value must be of type string, ${typeof value} given` };
 
     _.forEach(validations, (args, name) => {
       const valid = validationProvider.validate(value, name, args);
