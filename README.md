@@ -130,6 +130,14 @@ the validations object contains the name of the validation function as key and t
 In case of objects / array of objects, the validation definition contains a validation definition for each property of the object or object in array.
 Each definition must then have a type and a validations definition for each property of the object to validate.
 
+### Multiple types
+The type property can be an array of multiple types.
+
+In case of an array of types, the value will be validated for each type.
+If one of the types is valid, the value is considered as valid. If not, the message for the type validation is concatenated.
+
+Be aware that you can not define validations based on value's type. Your validation functions must do this check by itself.
+
 ### Dynamic type
 The type property can be one of the predefined types from below as well as a function.
 
