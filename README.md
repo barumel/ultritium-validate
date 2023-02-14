@@ -1,6 +1,6 @@
 Ultritium Validate
 =========================
-[![Build Status](https://travis-ci.org/barumel/ultritium-validate.svg?branch=master)](https://travis-ci.org/barumel/ultritium-validate)
+[![Build Status](https://app.travis-ci.com/barumel/ultritium-validate.svg?branch=master)](https://travis-ci.org/barumel/ultritium-validate)
 [![NPM](https://img.shields.io/npm/v/@ultritium/validate.svg)](https://www.npmjs.org/package/@ultritium/validate)
 
 
@@ -240,7 +240,7 @@ const definition = {
       type: 'object',
       required: true,
       // Object containing the structure of the object to validate.
-      // Each definition is a validation of another type (can also be object)    
+      // Each definition is a validation of another type (can also be object)
       // The definition differs to the definition of primitive types like string, bool etc.
       // as an object containing other validations is expected
       validations: {
