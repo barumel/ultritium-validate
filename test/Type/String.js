@@ -1,6 +1,6 @@
-const assert = require('assertthat');
+import assert from 'assertthat';
 
-const TypeString = require('../../src/Type/String');
+import TypeString from '../../src/Type/String.js';
 
 describe('Type string tests', () => {
   describe('Test validate method', () => {

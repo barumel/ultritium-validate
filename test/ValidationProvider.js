@@ -1,6 +1,6 @@
-const assert = require('assertthat');
+import assert from 'assertthat';
 
-const ValidationProvider = require('../src/ValidationProvider');
+import ValidationProvider from '../src/ValidationProvider.js';
 
 describe('Validation tests', () => {
   describe('Test constructor', () => {

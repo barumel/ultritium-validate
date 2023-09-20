@@ -1,4 +1,4 @@
-const _ = require('lodash');
+import _ from 'lodash';
 
 function ValidationProvider(parent) {
   if (_.isArray(parent)) throw new Error('Passed parent must be an object, array given!');
@@ -128,4 +128,4 @@ function ValidationProvider(parent) {
   });
 }
 
-module.exports = ValidationProvider;
+export default ValidationProvider;

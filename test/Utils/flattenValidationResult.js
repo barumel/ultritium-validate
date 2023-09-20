@@ -1,5 +1,6 @@
-const assert = require('assertthat');
-const flattenValidationResult = require('../../src/Utils/flattenValidationResult.js');
+import assert from 'assertthat';
+
+import flattenValidationResult from '../../src/Utils/flattenValidationResult.js';
 
 describe('Test validation utils', () => {
   describe('Test flattenValidationResult function', () => {

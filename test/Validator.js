@@ -1,8 +1,11 @@
-const assert = require('assertthat');
-const Validator = require('../src/Validator');
-const ValidationProvider = require('../src/ValidationProvider');
-const TypeProvider = require('../src//TypeProvider');
-const MessageProvider = require('../src//MessageProvider');
+import assert from 'assertthat';
+
+import {
+  Validator,
+  ValidationProvider,
+  TypeProvider,
+  MessageProvider
+} from '../src/index.js';
 
 const validationProvider = ValidationProvider();
 const typeProvider = TypeProvider();

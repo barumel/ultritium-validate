@@ -1,5 +1,6 @@
-const assert = require('assertthat');
-const Type = require('../../src/Type/Type');
+import assert from 'assertthat';
+
+import Type from '../../src/Type/Type.js';
 
 describe('Type proto tests', () => {
   describe('Constructor tests', () => {

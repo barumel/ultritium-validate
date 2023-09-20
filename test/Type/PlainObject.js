@@ -1,6 +1,6 @@
-const assert = require('assertthat');
+import assert from 'assertthat';
 
-const TypePlainObject = require('../../src/Type/PlainObject');
+import TypePlainObject from '../../src/Type/PlainObject.js';
 
 describe('Type plainObject tests', () => {
   describe('Test validate method', () => {

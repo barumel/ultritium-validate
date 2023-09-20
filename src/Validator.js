@@ -1,8 +1,9 @@
-const _ = require('lodash');
-const ValidationProvider = require('./ValidationProvider');
-const TypeProvider = require('./TypeProvider');
-const MessageProvider = require('./MessageProvider');
-const TypeObject = require('./Type/Object');
+import _ from 'lodash';
+
+import ValidationProvider from './ValidationProvider.js';
+import TypeProvider from './TypeProvider.js';
+import MessageProvider from './MessageProvider.js';
+import TypeObject from './Type/Object.js';
 
 function Validator(validationProvider) {
   if (_.isUndefined(validationProvider)) throw new Error('No validation provider given!');
@@ -48,4 +49,4 @@ function Validator(validationProvider) {
   });
 }
 
-module.exports = Validator;
+export default Validator;
