@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "build": "node ./build.prod.cjs",
-    "start": "npm run devlink && node ./run-dev.cjs",
+    "start": "node ./run-dev.cjs",
     "test": "mocha --recursive --bail"
   },
   "keywords": [
