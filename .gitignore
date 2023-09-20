@@ -63,3 +63,4 @@ typings/
 /lib
 /umd
 npm-debug.log*
+/dist
