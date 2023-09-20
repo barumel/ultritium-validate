@@ -1,6 +1,6 @@
 {
   "name": "@ultritium/validate",
-  "version": "0.13.0",
+  "version": "1.0.0",
   "description": "Ultritium validator",
   "browser": "./dist/bundle.esm.js",
   "module": "./dist/bundle.esm.js",
