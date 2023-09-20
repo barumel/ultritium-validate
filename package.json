@@ -2,14 +2,15 @@
   "name": "@ultritium/validate",
   "version": "1.0.0",
   "description": "Ultritium validator",
-  "browser": "./dist/bundle.esm.js",
+  "main": "./dist/bundle.cjs.js",
   "module": "./dist/bundle.esm.js",
+  "type": "module",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "node ./build.prod.js",
-    "start": "npm run devlink && node ./run-dev.js",
+    "build": "node ./build.prod.cjs",
+    "start": "npm run devlink && node ./run-dev.cjs",
     "test": "mocha --recursive --bail"
   },
   "keywords": [

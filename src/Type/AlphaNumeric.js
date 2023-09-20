@@ -1,5 +1,6 @@
-const _ = require('lodash');
-const Type = require('./Type');
+import _ from 'lodash';
+
+import Type from './Type.js';
 
 /**
  * Type string
@@ -50,4 +51,4 @@ function TypeAlphaNumeric(validations, typeProvider, validationProvider, message
   });
 }
 
-module.exports = TypeAlphaNumeric;
+export default TypeAlphaNumeric;

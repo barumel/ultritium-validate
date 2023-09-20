@@ -1,13 +1,14 @@
-const _ = require('lodash');
-const TypeAlphaNumeric = require('./Type/AlphaNumeric');
-const TypeString = require('./Type/String');
-const TypeNumber = require('./Type/Number');
-const TypeArray = require('./Type/Array');
-const TypeObject = require('./Type/Object');
-const TypeBoolean = require('./Type/Boolean');
-const TypePlainObject = require('./Type/PlainObject');
-const TypePlainArray = require('./Type/PlainArray');
-const TypeFunction = require('./Type/Function');
+import _ from 'lodash';
+
+import TypeAlphaNumeric from './Type/AlphaNumeric.js';
+import TypeArray from './Type/Array.js';
+import TypeBoolean from './Type/Boolean.js';
+import TypeFunction from './Type/Function.js';
+import TypeNumber from './Type/Number.js';
+import TypeObject from './Type/Object.js';
+import TypePlainArray from './Type/PlainArray.js';
+import TypePlainObject from './Type/PlainObject.js';
+import TypeString from './Type/String.js';
 
 /**
  * Type factory
@@ -163,4 +164,4 @@ function TypeProvider() {
   });
 }
 
-module.exports = TypeProvider;
+export default TypeProvider;

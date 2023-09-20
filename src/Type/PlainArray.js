@@ -1,6 +1,6 @@
-const _ = require('lodash');
-const Type = require('./Type');
+import _ from 'lodash';
 
+import Type from './Type.js';
 /**
  * Type Array
  *
@@ -50,4 +50,4 @@ function TypePlainArray(validations, typeProvider, validationProvider, messagePr
   });
 }
 
-module.exports = TypePlainArray;
+export default TypePlainArray;

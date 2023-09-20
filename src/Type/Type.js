@@ -1,4 +1,4 @@
-const _ = require('lodash');
+import _ from 'lodash';
 
 /**
  * Base type
@@ -35,4 +35,4 @@ function Type(validations, typeProvider, validationProvider, messageProvider) {
   });
 }
 
-module.exports = Type;
+export default Type;

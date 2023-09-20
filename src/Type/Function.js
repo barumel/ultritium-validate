@@ -1,5 +1,6 @@
-const _ = require('lodash');
-const Type = require('./Type');
+import _ from 'lodash';
+
+import Type from './Type.js';
 
 /**
  * Type string
@@ -40,4 +41,4 @@ function TypeFunction(validations, typeProvider, validationProvider, messageProv
   });
 }
 
-module.exports = TypeFunction;
+export default TypeFunction;
