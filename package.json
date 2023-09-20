@@ -2,7 +2,7 @@
   "name": "@ultritium/validate",
   "version": "1.0.0",
   "description": "Ultritium validator",
-  "main": "./dist/bundle.cjs.js",
+  "main": "./dist/bundle.cjs.cjs",
   "module": "./dist/bundle.esm.js",
   "type": "module",
   "files": [
@@ -24,8 +24,8 @@
   "devDependencies": {
     "assertthat": "^0.10.3",
     "esbuild": "^0.19.3",
-    "eslint": "^7.32.0",
-    "eslint-config-es": "^4.2.0",
+    "eslint": "^8.49.0",
+    "eslint-config-airbnb": "^19.0.4",
     "mocha": "^10.2.0"
   },
   "author": "barumel",

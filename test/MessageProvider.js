@@ -1,6 +1,6 @@
-const assert = require('assertthat');
+import assert from 'assertthat';
 
-const MessageProvider = require('../src/MessageProvider');
+import MessageProvider from '../src/MessageProvider.js';
 
 describe('MessageProvider tests', () => {
   describe('Constructor tests', () => {

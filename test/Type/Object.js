@@ -1,7 +1,9 @@
-const assert = require('assertthat');
+import assert from 'assertthat';
 
-const TypeObject = require('../../src/Type/Object');
-const TypeProvider = require('../../src/TypeProvider');
+import {
+  TypeObject,
+  TypeProvider
+} from '../../src/index.js';
 
 const provider = TypeProvider();
 
