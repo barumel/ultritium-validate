@@ -1,21 +1,16 @@
 {
   "name": "@ultritium/validate",
-  "version": "0.13.0",
+  "version": "1.0.0",
   "description": "Ultritium validator",
-  "main": "lib/index.js",
-  "module": "es/index.js",
+  "browser": "./dist/bundle.esm.js",
+  "module": "./dist/bundle.esm.js",
   "files": [
-    "es",
-    "lib",
-    "umd"
+    "dist"
   ],
   "scripts": {
-    "build": "nwb build-web-module --no-demo",
-    "start": "nodemon -w src -x 'nwb build-web-module --no-demo --copy-files'",
-    "clean": "nwb clean-module",
-    "test": "mocha --recursive --bail",
-    "test:coverage": "nwb test --coverage",
-    "test:watch": "nwb test --server"
+    "build": "node ./build.prod.js",
+    "start": "npm run devlink && node ./run-dev.js",
+    "test": "mocha --recursive --bail"
   },
   "keywords": [
     "ultritium",
@@ -27,11 +22,10 @@
   },
   "devDependencies": {
     "assertthat": "^0.10.3",
-    "eslint": "^4.19.1",
-    "eslint-config-es": "^0.8.12",
-    "mocha": "^7.2.0",
-    "nodemon": "^2.0.20",
-    "nwb": "^0.25.2"
+    "esbuild": "^0.19.3",
+    "eslint": "^7.32.0",
+    "eslint-config-es": "^4.2.0",
+    "mocha": "^10.2.0"
   },
   "author": "barumel",
   "homepage": "",
