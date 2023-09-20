@@ -1,4 +1,4 @@
-const _ = require('lodash');
+import _ from 'lodash';
 
 function MessageProvider(initialMessages = {}) {
   const messages = new Map(_.map(initialMessages, (message, key) => [key, message]));
@@ -138,4 +138,4 @@ function MessageProvider(initialMessages = {}) {
   });
 }
 
-module.exports = MessageProvider;
+export default MessageProvider;

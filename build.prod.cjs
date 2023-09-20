@@ -32,6 +32,6 @@ esbuild.build({
 esbuild.build({
   ...config,
   format: 'cjs',
-  outfile: './dist/bundle.cjs.js'
+  outfile: './dist/bundle.cjs.cjs'
 });
 

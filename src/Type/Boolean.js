@@ -1,5 +1,6 @@
-const _ = require('lodash');
-const Type = require('./Type');
+import _ from 'lodash';
+
+import Type from './Type.js';
 
 /**
  * Type Number
@@ -48,4 +49,4 @@ function TypeBoolean(validations, typeProvider, validationProvider, messageProvi
   });
 }
 
-module.exports = TypeBoolean;
+export default TypeBoolean;

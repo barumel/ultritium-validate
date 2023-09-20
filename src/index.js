@@ -1,17 +1,8 @@
-const _ = require('lodash');
-const validations = require('validator');
+import _ from 'lodash';
+import validations from 'validator';
 
-const MessageProvider = require('./MessageProvider');
-const Type = require('./Type/Type');
-const TypeArray = require('./Type/Array');
-const TypeNumber = require('./Type/Array');
-const TypeObject = require('./Type/Object');
-const TypeProvider = require('./TypeProvider');
-const TypeString = require('./Type/String');
-const ValidationProvider = require('./ValidationProvider');
-const Validator = require('./Validator');
-
-const flattenValidationResult = require('./Utils/flattenValidationResult');
+import ValidationProvider from './ValidationProvider.js';
+import Validator from './Validator.js';
 
 function ParentValidatonProvider() {
   const provider = ValidationProvider();
@@ -29,12 +20,24 @@ function ParentValidatonProvider() {
   });
 }
 
-function DefaultValidator() {
+export function DefaultValidator() {
   const validationProvider = ValidationProvider(ParentValidatonProvider());
 
   return Validator(validationProvider);
 }
 
+export { default as flattenValidationResult } from './Utils/flattenValidationResult.js';
+export { default as MessageProvider } from './MessageProvider.js';
+export { default as Type } from './Type/Type.js';
+export { default as TypeArray } from './Type/Array.js';
+export { default as TypeNumber } from './Type/Number.js';
+export { default as TypeObject } from './Type/Object.js';
+export { default as TypeProvider } from './TypeProvider.js';
+export { default as TypeString } from './Type/String.js';
+export { default as ValidationProvider } from './ValidationProvider.js';
+export { default as Validator } from './Validator.js';
+
+/*
 module.exports = {
   DefaultValidator,
   flattenValidationResult,
@@ -48,3 +51,4 @@ module.exports = {
   ValidationProvider,
   Validator
 };
+*/

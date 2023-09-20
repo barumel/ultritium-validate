@@ -1,7 +1,9 @@
-const assert = require('assertthat');
+import assert from 'assertthat';
 
-const TypeProvider = require('../src/TypeProvider');
-const Type = require('../src/Type/Type');
+import {
+  TypeProvider,
+  Type
+} from '../src/index.js';
 
 function TestType(validation, types) {
   const type = Type(validations, type);

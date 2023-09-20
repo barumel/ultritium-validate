@@ -1,4 +1,4 @@
-const _ = require('lodash');
+import _ from 'lodash';
 
 function flattenValidationResult(validations) {
   let messages = [];
@@ -30,4 +30,4 @@ function flattenValidation(validation, key) {
 }
 
 
-module.exports = flattenValidationResult;
+export default flattenValidationResult;
