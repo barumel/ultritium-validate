@@ -8,6 +8,37 @@ function ValidationProvider(parent) {
   const validations = new Map();
 
   /**
+     * Check if the provider has a parent validaton provider
+     *
+     * @return  {Boolean}
+     */
+  function hasParent() {
+    return _.isNil(parent);
+  }
+
+  /**
+   * Get the parent validation provider
+   *
+   * @return  {ValidationProvider} parent Parent validation provider
+   */
+  function getParent() {
+    return parent;
+  }
+
+  /**
+   * Get a validation from parent validation provider
+   *
+   * @param   {String}  identifier  Validation identifier
+   *
+   * @return  {Function} validation Validation function
+   */
+  function getParentValidation(identifier) {
+    checkIdentifierArgument(identifier);
+
+    return parent.getValidation(identifier);
+  }
+
+  /**
    * Is there a validation for the given identifier
    *
    * @param  {Mixed} identifier Validation identifier
@@ -117,6 +148,9 @@ function ValidationProvider(parent) {
   }
 
   return Object.freeze({
+    hasParent,
+    getParent,
+    getParentValidation,
     hasValidation,
     getValidation,
     addValidation,
