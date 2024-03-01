@@ -1,7 +1,4 @@
 const esbuild = require('esbuild');
-const get = require('lodash/get');
-
-const pkg = require('./package.json');
 
 const config = {
   loader: {
@@ -12,26 +9,21 @@ const config = {
   minify: true,
   sourcemap: true,
   treeShaking: true,
-  // We do not want to bundle any dependency into the build. They get installed via yarn and the main project must decide what to include...
-  external: [
-    ...Object.keys(get(pkg, 'dependencies', {})),
-    ...Object.keys(get(pkg, 'peerDependencies', {})),
-    ...Object.keys(get(pkg, 'devDependencies', {})),
-  ],
-  target: ['esnext', 'node12.22.0']
+  packages: 'external'
 };
 
 // Build browser module
 esbuild.build({
   ...config,
   format: 'esm',
-  outfile: './dist/bundle.esm.js'
+  outfile: './dist/bundle.esm.js',
+  target: ['esnext']
 });
 
 // Build common js
 esbuild.build({
   ...config,
   format: 'cjs',
-  outfile: './dist/bundle.cjs.cjs'
+  outfile: './dist/bundle.cjs.cjs',
+  target: ['node12.22.0'],
 });
-
