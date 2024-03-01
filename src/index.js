@@ -7,6 +7,16 @@ import Validator from './Validator.js';
 function ParentValidatonProvider() {
   const provider = ValidationProvider();
 
+  function hasValidation(identifier) {
+    const func = validations[identifier];
+
+    return _.isFunction(func);
+  }
+
+  function getValidation(identifier) {
+    return validations[identifier];
+  }
+
   function validate(value, identifier, args) {
     const func = validations[identifier];
     if (!_.isFunction(func)) throw new Error(`No validation method "${identifier}" registered!`);
@@ -16,6 +26,8 @@ function ParentValidatonProvider() {
 
   return Object.freeze({
     ...provider,
+    hasValidation,
+    getValidation,
     validate
   });
 }
