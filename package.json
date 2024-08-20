@@ -34,11 +34,11 @@
   },
   "devDependencies": {
     "assertthat": "^0.10.3",
-    "esbuild": "^0.19.3",
-    "eslint": "^8.49.0",
+    "esbuild": "^0.23.1",
+    "eslint": "^8.56.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.29.1",
-    "mocha": "^10.2.0"
+    "mocha": "^10.7.3"
   },
   "author": "barumel",
   "homepage": "",
