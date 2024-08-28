@@ -116,7 +116,10 @@ function ValidationProvider(parent) {
   }
 
   function validate(value, identifier, args) {
-    if (!hasValidation(identifier) && !_.isUndefined(parent)) return parent.validate(value, identifier, args);
+    if (!validations.has(identifier) && !_.isUndefined(parent)) {
+      return parent.validate(value, identifier, args);
+    }
+
     const func = getValidation(identifier);
     if (_.isUndefined(func)) throw new Error(`No validation method "${identifier}" registered!`);
 
