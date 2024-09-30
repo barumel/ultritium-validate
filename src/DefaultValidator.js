@@ -21,9 +21,6 @@ function ParentValidatonProvider() {
     const func = validations[identifier];
     if (!_.isFunction(func)) throw new Error(`No validation method "${identifier}" registered!`);
 
-    console.log('VALIDATOR: CALL PARENT VALIDATOR FOR', identifier, value, ...args);
-
-
     return func.apply(validations, [value + '', ...args]);
   }
 
