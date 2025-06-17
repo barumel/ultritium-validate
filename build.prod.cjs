@@ -16,6 +16,7 @@ const config = {
 esbuild.build({
   ...config,
   format: 'esm',
+  platform: 'browser',
   outfile: './dist/bundle.esm.js',
   target: ['esnext']
 });
@@ -24,6 +25,7 @@ esbuild.build({
 esbuild.build({
   ...config,
   format: 'cjs',
-  outfile: './dist/bundle.cjs.cjs',
-  target: ['node12.22.0'],
+  platform: 'node',
+  outfile: './dist/bundle.cjs.js',
+  target: ['node12'],
 });
