@@ -12,20 +12,55 @@ const config = {
   packages: 'external'
 };
 
-// Build browser module
-esbuild.build({
-  ...config,
-  format: 'esm',
-  platform: 'browser',
-  outfile: './dist/bundle.esm.js',
-  target: ['esnext']
-});
+(async function build() {
+  // Build browser esm
+  try {
+    await esbuild.build({
+      ...config,
+      format: 'esm',
+      outExtension: { '.js': '.mjs' },
+      entryPoints: [{ in: 'src/index.js', out: 'index.browser' }],
+      platform: 'browser',
+      target: ['esnext'],
+      outdir: './dist',
+    });
+  } catch (error) {
+    console.error('Unable to build browser esm!');
 
-// Build common js
-esbuild.build({
-  ...config,
-  format: 'cjs',
-  platform: 'node',
-  outfile: './dist/bundle.cjs.js',
-  target: ['node12'],
-});
+    throw error;
+  }
+
+  // Build node esm
+  try {
+    await esbuild.build({
+      ...config,
+      format: 'esm',
+      outExtension: { '.js': '.mjs' },
+      entryPoints: [{ in: 'src/index.js', out: 'index.node' }],
+      platform: 'node',
+      target: ['node12'],
+      outdir: './dist',
+    });
+  } catch (error) {
+    console.error('Unable to build node esm!');
+
+    throw error;
+  }
+
+  // Build node cjs
+  try {
+    await esbuild.build({
+      ...config,
+      format: 'cjs',
+      outExtension: { '.js': '.cjs' },
+      entryPoints: [{ in: 'src/index.js', out: 'index.node' }],
+      platform: 'node',
+      target: ['node12'],
+      outdir: './dist',
+    });
+  } catch (error) {
+    console.error('Unable to build node cjs');
+
+    throw error;
+  }
+}());
