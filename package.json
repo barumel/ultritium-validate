@@ -3,8 +3,8 @@
   "version": "1.4.0",
   "description": "Ultritium validator",
   "type": "module",
-  "browser": "./dist/index.browser.mjs",
-  "module": "./dist/index.browser.mjs",
+  "browser": "./dist/index.browser.js",
+  "module": "./dist/index.browser.js",
   "main": "./dist/index.node.cjs",
   "exports": {
     ".": {
@@ -12,7 +12,7 @@
         "import": "./dist/index.node.mjs",
         "require": "./dist/index.node.cjs"
       },
-      "browser": "./dist/index.browser.mjs"
+      "browser": "./dist/index.browser.js"
     },
     "./dist/": {
       "import": "./dist/",

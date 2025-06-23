@@ -18,7 +18,6 @@ const config = {
     await esbuild.build({
       ...config,
       format: 'esm',
-      outExtension: { '.js': '.mjs' },
       entryPoints: [{ in: 'src/index.js', out: 'index.browser' }],
       platform: 'browser',
       target: ['esnext'],

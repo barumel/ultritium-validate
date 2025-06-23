@@ -7,17 +7,16 @@ const pkg = require('./package.json');
     loader: {
       '.js': 'jsx'
     },
-    format: 'esm',
-    entryPoints: ['src/index.js'],
+    entryPoints: [{ in: 'src/index.js', out: 'index.browser' }],
     bundle: true,
+    minify: true,
     sourcemap: true,
     treeShaking: true,
-    outfile: './dist/bundle.esm.js',
-    external: [
-      ...Object.keys(get(pkg, 'dependencies', {})),
-      ...Object.keys(get(pkg, 'peerDependencies', {})),
-      ...Object.keys(get(pkg, 'devDependencies', {})),
-    ],
+    packages: 'external',
+    format: 'esm',
+    platform: 'browser',
+    target: ['esnext'],
+    outdir: './dist',
   });
 
   await ctx.watch();
